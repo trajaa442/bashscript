@@ -8,5 +8,5 @@ echo "print the exported variable from bash script"
 
 echo $data
 
-echo "printing variable defined inthe script"
+echo "printing variable inthe script"
 echo $data1
