@@ -1,0 +1,32 @@
+---
+- hosts: webservers
+  become: yes
+
+  tasks:
+  - name: ensure appache installed
+    apt:
+    name: apache2
+    state: present
+
+  - name: creates directory
+    file: path=/var/www/html/raj1
+    state: directory
+
+  - name: ensure mysql server installed
+    apt:
+    name: mysql-server
+    state: present
+
+  - name: ensure apache is running
+    service: name=apache2 enabled=yes state=started
+
+  - name: deploy webpage to path=/var/www/html/raj1
+    copy: src=raj1.html dest=/var/www/html/raj1/ mode=0644
+
+  - name: flush all temporory rules
+    service: name=ufw state=restarted
+
+  - name: Allow port 80/apache2 access from anywhere
+    ufw: rule=allow src=0.0.0.0/0
+
+
