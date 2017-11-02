@@ -1,0 +1,80 @@
+git clone https://github.com/wkhanvisualpathit/VProfile.git
+  250  cd VProfile/
+  251  mvn install
+  252  ls
+  253  cd target
+  254  ls
+  255  exit
+  256  docker images
+  257  cd docker
+  258  git clone https://github.com/wkhanvisualpathit/VProfile.git
+  259  cd VProfile/
+  260  LS
+  261  cd target
+  262  ls
+  263  exit
+  264  ls
+  265  clear
+  266  cd docker/
+  267  ls
+  268  rm -rf VProfile/ vproapp/
+  269  ls
+  270  clear
+  271  git clone https://github.com/wkhanvisualpathit/VProfile.git
+  272  ls
+  273  cd VProfile/
+  274  ls
+  275  git checkout vp-docker
+  276  git branch
+  277  clear
+  278  ls
+  279  cd Docker-web/
+  280  ls
+  281  cd ..
+  282  ls
+  283  mvn install
+  284  ls
+  285  cd target/
+  286  ls
+  287  cd ..
+  288  ls
+  289  cd Docker-web/
+  290  ls
+  291  cp Dockerfile /root/docker/VProfile/target/
+  292  cd ..
+  293  ls
+  294  cd target/
+  295  ls
+  296  vi Dockerfile 
+  297  cd ..
+  298  ls
+  299  cd Docker-web/
+  300  ls
+  301  cat Dockerfile 
+  302  clear
+  303  ls
+  304  cd ..
+  305  cd target/
+  306  ls
+  307  docker build -t vp:11 .
+  308  docker images
+  309  cd..
+  310  ls
+  311  cd ..
+  312  ls
+  313  cd Docker-db/
+  314  ls
+  315  vi Dockerfile 
+  316  docker build -t vprodb:11 .
+  317  docker images
+  318  docker run --name vprodb -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=vprodbpass vprodb:11
+  319  docker ps
+  320  cd ..
+  321  ls
+  322  cd target/
+  323  ls
+  324  docker run --name vprofileapp --link vprodb -d -p 7070:8080 vp:11
+  325  docker ps
+  326  docker inspect 9bfc826c2848
+  327  history
+root@devops:~/docker/VProfi
